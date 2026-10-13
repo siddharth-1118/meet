@@ -2,7 +2,8 @@ import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
 import * as schema from "./schema";
 
-export const sqlite = new Database("nexmeet.db");
+const dbPath = process.env.VERCEL ? "/tmp/nexmeet.db" : "nexmeet.db";
+export const sqlite = new Database(dbPath);
 
 // Auto-initialize SQLite tables
 sqlite.exec(`
