@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/components.json",
+  "style": "new-york",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "styles/globals.css",
+    "prefix": "",
+    "arbitraryVariants": false
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "content": [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
+  "styles": {
+    "colorSchemes": ["light", "dark"],
+    "tailwind": {}
+  },
+  "icon": "lucide-react",
+  "framework": "next",
+  "color": "gray",
+  "promptExportName": "default"
+}
