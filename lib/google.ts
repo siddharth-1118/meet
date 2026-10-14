@@ -13,18 +13,19 @@ export function isGoogleOAuthConfigured(): boolean {
   );
 }
 
-export function getOAuth2Client() {
+export function getOAuth2Client(customRedirectUri?: string) {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
   const redirectUri =
+    customRedirectUri ||
     process.env.GOOGLE_REDIRECT_URI ||
     "http://localhost:3000/api/auth/callback/google";
 
   return new google.auth.OAuth2(clientId, clientSecret, redirectUri);
 }
 
-export function getGoogleAuthUrl(): string {
-  const oauth2Client = getOAuth2Client();
+export function getGoogleAuthUrl(customRedirectUri?: string): string {
+  const oauth2Client = getOAuth2Client(customRedirectUri);
 
   const scopes = [
     "https://www.googleapis.com/auth/calendar.events",
